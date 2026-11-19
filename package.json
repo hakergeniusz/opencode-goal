@@ -1,0 +1,28 @@
+{
+  "name": "opencode-goal",
+  "version": "0.1.0",
+  "description": "Set a completion goal with /goal; after each turn a verifier model checks the evidence and forces continuation until the goal is met, declared unreachable, or a guard trips.",
+  "private": false,
+  "type": "module",
+  "license": "MIT",
+  "keywords": [
+    "opencode",
+    "opencode-plugin",
+    "goal",
+    "verifier",
+    "stop-hook",
+    "continuation"
+  ],
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "files": [
+    "src"
+  ],
+  "dependencies": {
+    "@opencode/plugin": "latest"
+  },
+  "devDependencies": {
+    "typescript": "latest"
+  }
+}
