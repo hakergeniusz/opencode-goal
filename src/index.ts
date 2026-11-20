@@ -184,7 +184,7 @@ export default Plugin.define({
     const busy = new Set<string>()
     const key = (sessionID: string) => `${STORAGE_PREFIX}${sessionID}`
 
-    // Restore armed goals. Like the pi original, counters restart fresh.
+    // Restore armed goals. Counters restart fresh.
     try {
       const page = await ctx.storage.scan({ prefix: STORAGE_PREFIX })
       for (const entry of page.entries) {
@@ -414,7 +414,7 @@ export default Plugin.define({
           `Evaluator: ${parsed.reason}\n` +
           `Keep working toward the goal. State the verifiable outcome (test output, build exit code, file state) in your reply.`
         await persist(sessionID, state)
-        // A new prompt is the OpenCode equivalent of pi's event.continue = true:
+        // A new prompt continues the task in a fresh turn:
         // it shows the guidance in the transcript and starts the next turn.
         await ctx.session.prompt({ sessionID, text: guidance, delivery: "queue" })
       } finally {
